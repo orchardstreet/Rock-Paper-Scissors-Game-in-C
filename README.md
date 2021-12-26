@@ -1,7 +1,7 @@
 # Rock, Paper, Scissors Game in C
 
 ### Compilation
-To compile on Debian-linux based systems:
+To compile on Debian-based Linux systems:
 ```
 sudo apt update && sudo apt install build-essential -y
 chmod +x compile.sh
