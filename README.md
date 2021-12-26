@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors Game in C
 
-### Compilation
+### Compile and Run
 To compile on Debian-based Linux systems:
 ```
 sudo apt update && sudo apt install build-essential git -y
@@ -10,7 +10,7 @@ chmod +x compile.sh
 ./compile.sh
 ```
 
-### Run
+Then, to run:
 ```
 ./rock_paper_scissors
 ```
