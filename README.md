@@ -1,11 +1,11 @@
 # Rock, Paper, Scissors Game in C
 
-###Compilation
+### Compilation
 To compile on Debian-linux based systems:
 
 sudo apt update && sudo apt install build-essential -y
 chmod +x compile.sh
 ./compile.sh
 
-###Run
+### Run
 ./rock_paper_scissors
