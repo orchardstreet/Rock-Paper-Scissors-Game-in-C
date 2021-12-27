@@ -59,9 +59,7 @@ void main_user_input(char *string_human_choice,int8_t *human_choice) {
 			exit_error("Couldn't parse user input");
 
 		//remove newline from user input
-		char *newline_ptr;
-		if((newline_ptr = strchr(string_human_choice,'\n'))) 
-			*newline_ptr = 0; 
+		string_human_choice[strlen(string_human_choice) - 1] = 0;
 		
 		if (!strcmp("x",string_human_choice) || !strcmp ("X",string_human_choice)) {
 			printf("exiting...\n");
@@ -88,9 +86,7 @@ void play_again_prompt(char *string_human_choice) {
 			exit_error("error reading from stdin");
 
 		//remove newline from user input
-		char *newline_ptr;
-		if((newline_ptr = strchr(string_human_choice,'\n')))
-			*newline_ptr = 0;
+		string_human_choice[strlen(string_human_choice) - 1] = 0;
 
 		if(!strcmp("y",string_human_choice) || strcasestr(string_human_choice,"yes")) {
 			return;
@@ -160,7 +156,7 @@ int main() {
 		} else if (!result) {
 			printf("You tied!\n\n");
 		} else {
-			printf("You lost :\\(\n\n");
+			printf("You lost :(\n\n");
 		}
 
 		//ask user to play again;
