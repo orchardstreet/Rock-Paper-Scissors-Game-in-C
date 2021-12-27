@@ -60,7 +60,7 @@ void main_user_input(char *string_human_choice,int8_t *human_choice) {
 
 		//remove newline from user input
 		char *newline_ptr;
-		if(newline_ptr = strchr(string_human_choice,'\n')) 
+		if((newline_ptr = strchr(string_human_choice,'\n'))) 
 			*newline_ptr = 0; 
 		
 		if (!strcmp("x",string_human_choice) || !strcmp ("X",string_human_choice)) {
@@ -89,7 +89,7 @@ void play_again_prompt(char *string_human_choice) {
 
 		//remove newline from user input
 		char *newline_ptr;
-		if(newline_ptr = strchr(string_human_choice,'\n'))
+		if((newline_ptr = strchr(string_human_choice,'\n')))
 			*newline_ptr = 0;
 
 		if(!strcmp("y",string_human_choice) || strcasestr(string_human_choice,"yes")) {
@@ -121,7 +121,8 @@ int main() {
 	char *choice_array[] = {rock.name,paper.name,scissors.name};
 
 	//clear screen
-	printf("\e[1;1H\e[2J");
+	if(system("clear") < 0)
+		perror("no clear function inside this terminal");
 
 	//initialize random function with unix epoch
 	//time (in seconds) as the seed
@@ -159,14 +160,15 @@ int main() {
 		} else if (!result) {
 			printf("You tied!\n\n");
 		} else {
-			printf("You lost :\(\n\n");
+			printf("You lost :\\(\n\n");
 		}
 
 		//ask user to play again;
 		play_again_prompt(string_human_choice);
 
 		//clear screen
-		printf("\e[1;1H\e[2J");
+		if(system("clear") < 0)
+			perror("no clear function inside this terminal");
 	//end of main while loop
 	}
 
