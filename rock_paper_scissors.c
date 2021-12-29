@@ -149,7 +149,7 @@ int main() {
 		program_sleep(0,500000000);	
 	
 		//determine win based on the difference
-		//between the code values of the humand and computer choice 	
+		//between the code values of the human and computer choice 	
 		result = human_choice - computer_choice;
 		if(result == 1 || result == -2) {
 			printf("You won!\n\n");
