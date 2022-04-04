@@ -79,7 +79,7 @@ void main_user_input(char *string_human_choice,int8_t *human_choice) {
 
 //ask user if they want to play again, and loop on input error
 void play_again_prompt(char *string_human_choice) {
-	while(1) {
+	for(;;) {
 		printf("play again? ('y'es or 'n'o): ");
 		if(!fgets(string_human_choice,20,stdin)) 
 			exit_error("error reading from stdin");
@@ -124,7 +124,7 @@ int main() {
 	srand((unsigned int)time(NULL));
 
 	//main while loop
-	while(1) {
+	for(;;) {
 		printf("ROCK, PAPER, SCISSORS 1.0\n\n\n");
 
 		//computer chooses rock, paper, or scissors
