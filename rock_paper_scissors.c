@@ -52,7 +52,7 @@ void exit_error(char *the_error) {
 //let user enter the text: 'rock', 'paper', 'scissors', or 'x'
 //and loop indefinitely on anything else
 void main_user_input(char *string_human_choice,int8_t *human_choice) {
-	while(1) {
+	for(;;) {
 		printf("Enter rock, paper, or scissors (or 'x' to exit)\n\n> ");
 		if(!fgets(string_human_choice,20,stdin)) 
 			exit_error("Couldn't parse user input");
