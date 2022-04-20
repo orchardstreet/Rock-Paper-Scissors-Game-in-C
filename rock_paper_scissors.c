@@ -31,6 +31,7 @@ gcc -o rock_paper_scissors rock_paper_scissors.c -O2
 #include <string.h>
 #include <time.h>
 #include <assert.h>
+#define INPUT_SIZE 20
 
 //assign global, numeric codes to rock, paper, and scissors
 //rock is 0, paper is 1, and scissors is 2
@@ -54,7 +55,7 @@ void exit_error(char *the_error) {
 void main_user_input(char *string_human_choice,int8_t *human_choice) {
 	for(;;) {
 		printf("Enter rock, paper, or scissors (or 'x' to exit)\n\n> ");
-		if(!fgets(string_human_choice,20,stdin)) 
+		if(!fgets(string_human_choice,INPUT_SIZE,stdin)) 
 			exit_error("Couldn't parse user input");
 
 		//remove newline from user input
@@ -81,7 +82,7 @@ void main_user_input(char *string_human_choice,int8_t *human_choice) {
 void play_again_prompt(char *string_human_choice) {
 	for(;;) {
 		printf("play again? ('y'es or 'n'o): ");
-		if(!fgets(string_human_choice,20,stdin)) 
+		if(!fgets(string_human_choice,INPUT_SIZE,stdin)) 
 			exit_error("error reading from stdin");
 
 		//remove newline from user input
@@ -112,7 +113,7 @@ int main() {
 	int8_t human_choice = rock.code; 
 	int8_t computer_choice = rock.code; 
 	int8_t result;
-	char string_human_choice[20];
+	char string_human_choice[INPUT_SIZE];
 	char *choice_array[] = {rock.name,paper.name,scissors.name};
 
 	//clear screen
