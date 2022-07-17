@@ -54,12 +54,19 @@ void exit_error(char *the_error) {
 //and loop indefinitely on anything else
 void main_user_input(char *string_human_choice,int8_t *human_choice) {
 	for(;;) {
+		size_t input_length;
+		
 		printf("Enter rock, paper, or scissors (or 'x' to exit)\n\n> ");
 		if(!fgets(string_human_choice,INPUT_SIZE,stdin)) 
 			exit_error("Couldn't parse user input");
 
-		//remove newline from user input
-		string_human_choice[strlen(string_human_choice) - 1] = 0;
+		input_length = strlen(string_human_choice);
+
+		//remove newline from user input, if one exists
+		if(input_length > 0) {
+			if(string_human_choice[input_length - 1] == '\n')
+				string_human_choice[input_length - 1] = 0;
+		}
 		
 		if (!strcmp("x",string_human_choice) || !strcmp ("X",string_human_choice)) {
 			printf("exiting...\n");
@@ -81,12 +88,19 @@ void main_user_input(char *string_human_choice,int8_t *human_choice) {
 //ask user if they want to play again, and loop on input error
 void play_again_prompt(char *string_human_choice) {
 	for(;;) {
+		size_t input_length;
+
 		printf("play again? ('y'es or 'n'o): ");
 		if(!fgets(string_human_choice,INPUT_SIZE,stdin)) 
 			exit_error("error reading from stdin");
+		
+		input_length = strlen(string_human_choice);
 
-		//remove newline from user input
-		string_human_choice[strlen(string_human_choice) - 1] = 0;
+		//remove newline from user input, if one exists
+		if(input_length > 0) {
+			if(string_human_choice[input_length - 1] == '\n')
+				string_human_choice[input_length - 1] = 0;
+		}
 
 		if(!strcmp("y",string_human_choice) || strcasestr(string_human_choice,"yes")) {
 			return;
